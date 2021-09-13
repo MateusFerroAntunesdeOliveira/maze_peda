@@ -37,3 +37,12 @@ maze/.vs/maze/v16/Browse.VC.opendb
 maze/maze.vcxproj
 maze/maze.vcxproj.filters
 maze/maze.vcxproj.user
+*.tlog
+maze/.vs/maze/v16/.suo
+*.log
+*.ilk
+*.ipch
+*.pdb
+*.idb
+*.recipe
+maze/Debug/maze.vcxproj.FileListAbsolute.txt
