@@ -30,24 +30,80 @@ int main() {
 	"XXXXXXXXXXXXXXXXXXXSX"
 	};
 
-    Pilha p;
+	Pilha px;
+	Pilha py;
 
-    p.push(5);
-    p.push(7);
-    p.push(9);
-    p.push(1);
-    p.push(2);
+	//-> Entrada
+	int x = 10;
+	int y = 0;
+	labirinto[x][y];
 
+	// x + 1 = desce 1 casa
+	// x - 1 = sobe 1 casa
+	// y + 1 = direita 1 casa
+	// y - 1 = esquerda 1 casa
+	//   *   = caminho percorrido
+
+	//-> Condicao de chegada
+	//while (labirinto[x][y] != 'S')
+
+	if (labirinto[x][0]) {
+		if (labirinto[x - 1][y] != 'X') {
+			--x;
+			px.push(x);
+			py.push(y);
+			labirinto[x][y] = '*';
+		}
+		if (labirinto[x][y + 1] != 'X') {
+			++y;
+			px.push(x);
+			py.push(y);
+			labirinto[x][y] = '*';
+		}
+		if (labirinto[x + 1][y] != 'X') {
+			++x;
+			px.push(x);
+			py.push(y);
+			labirinto[x][y] = '*';
+		}
+	}
+	else {
+		if (labirinto[x - 1][y] != 'X') {
+			--x;
+			px.push(x);
+			py.push(y);
+			labirinto[x][y] = '*';
+		}
+		if (labirinto[x][y + 1] != 'X') {
+			++y;
+			px.push(x);
+			py.push(y);
+			labirinto[x][y] = '*';
+		}
+		if (labirinto[x + 1][y] != 'X') {
+			++x;
+			px.push(x);
+			py.push(y);
+			labirinto[x][y] = '*';
+		}
+		if (labirinto[x][y - 1] != 'X') {
+			--y;
+			px.push(x);
+			py.push(y);
+			labirinto[x][y] = '*';
+		}
+
+		if (labirinto[x][y] == 'S') return -1;
+	}
+ 
 	cout << "\n* * * MAZE * * *";
 	cout << "\n- Mateus Ferro -\n" << endl;
-
 	for (int i = 0; i < labirinto.size(); i++) {
 		cout << labirinto[i] << endl;
 	}
-    cout << "\nTamanho atual da pilha: " << p.tamanho_pilha() << "\n" << endl;
-    while (!p.vazia()) {
-        cout << "Desempilhando o valor " << p.topo() << endl;
-        p.pop();
-    }
-    cout << "\nTamanho atual da pilha: " << p.tamanho_pilha() << "\n" << endl;
+
+	/*while (!p.vazia()) {
+	    cout << "Desempilhando o valor " << p.topo() << endl;
+	    p.pop();
+	}*/
 }
