@@ -11,7 +11,7 @@ constexpr int MAXPILHA = 15;
 
 class Pilha {
 private:
-    array<TipoDado, MAXPILHA> dados;
+    array<TipoDado, MAXPILHA> pilha;
     int topo_;
 
 public:
@@ -21,6 +21,7 @@ public:
     TipoDado topo();
     bool vazia();
     bool cheia();
+    int tamanho_pilha();
 };
 
 #endif

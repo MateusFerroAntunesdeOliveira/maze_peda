@@ -8,7 +8,7 @@ Pilha::Pilha() { topo_ = -1; }
 void Pilha::push(TipoDado elem) {
     if (!cheia()) {
         ++topo_;
-        dados[topo_] = elem;
+        pilha[topo_] = elem;
     }
     else cerr << "Pilha cheia!" << endl;
 }
@@ -19,7 +19,7 @@ void Pilha::pop() {
 }
 
 TipoDado Pilha::topo() {
-    if (!vazia()) return dados[topo_];
+    if (!vazia()) return pilha[topo_];
     else {
         cerr << "Pilha vazia!" << endl;
         return -1;
@@ -29,3 +29,5 @@ TipoDado Pilha::topo() {
 bool Pilha::vazia() { return (topo_ == -1); }
 
 bool Pilha::cheia() { return (topo_ == MAXPILHA - 1); }
+
+int Pilha::tamanho_pilha() { return topo_ + 1; }
