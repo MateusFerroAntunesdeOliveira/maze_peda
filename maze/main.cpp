@@ -93,14 +93,23 @@ int main() {
 			labirinto[x][y] = '*';
 		}
 
-		if (labirinto[x][y] == 'S') return -1;
+		if (labirinto[x][y] == 'S') {
+			cout << "Encotrou a Saida!" << endl;
+			return -1;
+		}
 	}
  
+	//TODO fazer a recursividade
+	//TODO verificar se o caminho já foi percorrido e se é necessário retroceder por ele
+
 	cout << "\n* * * MAZE * * *";
 	cout << "\n- Mateus Ferro -\n" << endl;
 	for (int i = 0; i < labirinto.size(); i++) {
 		cout << labirinto[i] << endl;
 	}
+
+	//TODO printar a pilha com a combinacao dos movimentos
+	//TODO printar quantos movimentos foram utilizados
 
 	/*while (!p.vazia()) {
 	    cout << "Desempilhando o valor " << p.topo() << endl;
