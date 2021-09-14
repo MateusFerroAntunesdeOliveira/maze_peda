@@ -36,7 +36,7 @@ int main() {
 	//-> Entrada
 	int x = 10;
 	int y = 0;
-	labirinto[x][y];
+	//labirinto[x][y];
 
 	// x + 1 = desce 1 casa
 	// x - 1 = sobe 1 casa
@@ -44,63 +44,40 @@ int main() {
 	// y - 1 = esquerda 1 casa
 	//   *   = caminho percorrido
 
-	//-> Condicao de chegada
-	//while (labirinto[x][y] != 'S')
+	int i = 20;
 
-	if (labirinto[x][0]) {
+	while (i > 0) {
+		//TODO verificar caminho já percorrido...
 		if (labirinto[x - 1][y] != 'X') {
 			--x;
 			px.push(x);
 			py.push(y);
 			labirinto[x][y] = '*';
 		}
-		if (labirinto[x][y + 1] != 'X') {
+		else if (labirinto[x][y + 1] != 'X') {
 			++y;
 			px.push(x);
 			py.push(y);
 			labirinto[x][y] = '*';
 		}
-		if (labirinto[x + 1][y] != 'X') {
+		else if (labirinto[x + 1][y] != 'X') {
 			++x;
 			px.push(x);
 			py.push(y);
 			labirinto[x][y] = '*';
 		}
-	}
-	else {
-		if (labirinto[x - 1][y] != 'X') {
-			--x;
-			px.push(x);
-			py.push(y);
-			labirinto[x][y] = '*';
-		}
-		if (labirinto[x][y + 1] != 'X') {
-			++y;
-			px.push(x);
-			py.push(y);
-			labirinto[x][y] = '*';
-		}
-		if (labirinto[x + 1][y] != 'X') {
-			++x;
-			px.push(x);
-			py.push(y);
-			labirinto[x][y] = '*';
-		}
-		if (labirinto[x][y - 1] != 'X') {
+		else if (labirinto[x][y - 1] != 'X') {
 			--y;
 			px.push(x);
 			py.push(y);
 			labirinto[x][y] = '*';
 		}
-
-		if (labirinto[x][y] == 'S') {
+		else if (labirinto[x][y] == 'S') {
 			cout << "Encotrou a Saida!" << endl;
 			return -1;
 		}
+		--i;
 	}
- 
-	//TODO fazer a recursividade
-	//TODO verificar se o caminho já foi percorrido e se é necessário retroceder por ele
 
 	cout << "\n* * * MAZE * * *";
 	cout << "\n- Mateus Ferro -\n" << endl;
@@ -112,7 +89,8 @@ int main() {
 	//TODO printar quantos movimentos foram utilizados
 
 	/*while (!p.vazia()) {
-	    cout << "Desempilhando o valor " << p.topo() << endl;
-	    p.pop();
+		cout << "Desempilhando o valor " << p.topo() << endl;
+		p.pop();
 	}*/
 }
+
