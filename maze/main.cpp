@@ -43,35 +43,60 @@ int main() {
 	// y + 1 = direita 1 casa
 	// y - 1 = esquerda 1 casa
 	//   *   = caminho percorrido
-
+	 
 	int i = 20;
 
 	while (i > 0) {
 		//TODO verificar caminho já percorrido...
-		if (labirinto[x - 1][y] != 'X') {
+		if (labirinto[x - 1][y] == ' ') {
 			--x;
 			px.push(x);
 			py.push(y);
 			labirinto[x][y] = '*';
 		}
-		else if (labirinto[x][y + 1] != 'X') {
+		else if (labirinto[x][y + 1] == ' ') {
 			++y;
-			px.push(x);
+			px.push(x); 
 			py.push(y);
 			labirinto[x][y] = '*';
 		}
-		else if (labirinto[x + 1][y] != 'X') {
+		else if (labirinto[x + 1][y] == ' ') {
 			++x;
 			px.push(x);
 			py.push(y);
 			labirinto[x][y] = '*';
 		}
-		else if (labirinto[x][y - 1] != 'X') {
+		else if (labirinto[x][y - 1] == ' ') {
 			--y;
 			px.push(x);
 			py.push(y);
 			labirinto[x][y] = '*';
 		}
+
+		else if (labirinto[x][y + 1] == 'X' && labirinto[x + 1][y] == 'X' && labirinto[x][y - 1] == 'X') {
+			--x;
+			px.pop();
+			py.pop();
+		}
+
+		else if (labirinto[x - 1][y] == 'X' && labirinto[x + 1][y] == 'X' && labirinto[x][y - 1] == 'X') {
+			++y;
+			px.pop();
+			py.pop();
+		}
+
+		else if (labirinto[x - 1][y] == 'X' && labirinto[x][y + 1] == 'X' && labirinto[x][y - 1] == 'X') {
+			++x;
+			px.pop();
+			py.pop();
+		}
+
+		else if (labirinto[x - 1][y] == 'X' && labirinto[x][y + 1] == 'X' && labirinto[x + 1][y] == 'X') {
+			--y;
+			px.pop();
+			py.pop();
+		}
+
 		else if (labirinto[x][y] == 'S') {
 			cout << "Encotrou a Saida!" << endl;
 			return -1;
