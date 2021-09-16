@@ -7,7 +7,7 @@
 using namespace std;
 
 using TipoDado = int;
-constexpr int MAXPILHA = 15;
+constexpr int MAXPILHA = 150;
 
 class Pilha {
 private:
