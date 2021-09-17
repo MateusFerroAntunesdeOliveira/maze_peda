@@ -81,8 +81,9 @@ int main() {
 
 	while (labirinto[x][y] != 'S') {
 
-		if (check_next(labirinto[x + 1][y])) {
-			++x;
+		
+		if (check_next(labirinto[x - 1][y])) {
+			--x;
 			px.push(x);
 			py.push(y);
 			if (labirinto[x][y] != 'S') {
@@ -103,8 +104,8 @@ int main() {
 			++cont_show;
 			++cont;
 		}
-		else if (check_next(labirinto[x - 1][y])) {
-			--x;
+		else if (check_next(labirinto[x + 1][y])) {
+			++x;
 			px.push(x);
 			py.push(y);
 			if (labirinto[x][y] != 'S') {
@@ -143,15 +144,24 @@ int main() {
 	cout << "\nSaida: " << "(" << px.topo() << "," << py.topo() << ")" << endl;
 
 	cout << "\nMovimentos usados no total para encontrar o caminho: " << cont << endl;
-	cout << "Movimentos usados no caminho certo: " << cont_show << endl;
+	cout << "Movimentos usados no caminho certo: " << cont_show << endl << endl;
 
-	//TODO printar a pilha com a combinacao dos movimentos
+	Pilha px2;
+	Pilha py2;
+	int a = 0;
 
-	for (int a = 0; a < px.tamanho_pilha() && a < py.tamanho_pilha(); ++a) {
-		cout << "Posicao X: " << px.topo() << " - ";
+	cout << "Combinacao dos movimentos para resolucao do labirinto: " << endl << endl;
+	while (!px.vazia() && !py.vazia()) {
+		px2.push(px.topo());
 		px.pop();
-		cout << "Posicao Y: " << py.topo() << endl;
+		py2.push(py.topo());
 		py.pop();
 	}
+	while (!px2.vazia() && !py2.vazia()) {
+		cout << "Jogada: " << a+1 << " -> " << "Posicao X: " << px2.topo() << " - ";
+		px2.pop();
+		cout << "Posicao Y: " << py2.topo() << endl;
+		py2.pop();
+		++a;
+	}
 }
-
