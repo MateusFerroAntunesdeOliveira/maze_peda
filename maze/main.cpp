@@ -57,16 +57,12 @@ int main() {
 	"XXXXXXXXXXXXXXXXXXXSX"
 	};
 
-	Pilha px;
-	Pilha py;
-
 	//-> Entrada
 	int x = 10;
 	int y = 0;
-	int cont = 0;
-	int cont_show = 0;
-	labirinto[x][y];
-	labirinto_show[x][y];
+
+	Pilha px, py;
+	int cont = 0, cont_show = 0;
 
 	// x + 1 = desce 1 casa
 	// x - 1 = sobe 1 casa
@@ -80,7 +76,6 @@ int main() {
 	cout << "Entrada: " << "(" << x << "," << y << ")" << endl << endl;
 
 	while (labirinto[x][y] != 'S') {
-
 		
 		if (check_next(labirinto[x - 1][y])) {
 			--x;
@@ -136,18 +131,16 @@ int main() {
 		}
 	}
 
-
 	for (int i = 0; i < labirinto_show.size(); i++) {
 		cout << labirinto_show[i] << endl;
 	}
 
 	cout << "\nSaida: " << "(" << px.topo() << "," << py.topo() << ")" << endl;
 
-	cout << "\nMovimentos usados no total para encontrar o caminho: " << cont << endl;
-	cout << "Movimentos usados no caminho certo: " << cont_show << endl << endl;
+	cout << "\nMovimentos usados no caminho certo: " << cont_show << endl;
+	cout << "Movimentos usados no total para encontrar o caminho certo: " << cont << endl << endl;
 
-	Pilha px2;
-	Pilha py2;
+	Pilha px2, py2;
 	int a = 0;
 
 	cout << "Combinacao dos movimentos para resolucao do labirinto: " << endl << endl;
