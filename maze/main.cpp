@@ -5,9 +5,7 @@
 
 using namespace std;
 
-bool check_next(char node) {
-	return node == 'S' || node == ' ';
-}
+bool check_next(char node) { return node == 'S' || node == ' '; }
 
 int main() {
 
@@ -122,12 +120,13 @@ int main() {
 			++cont;
 		}
 		else {
+			labirinto_show[x][y] = ' ';
 			x = px.topo();
-			px.pop();
 			y = py.topo();
+			px.pop();
 			py.pop();
 			--cont_show;
-			labirinto_show[x][y] = ' ';
+			//labirinto_show[x][y] = ' ';  -> usar para remover os pontos de 'bifurcacao'
 		}
 	}
 
